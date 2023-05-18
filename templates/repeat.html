@@ -7,28 +7,114 @@
 
   <title>Error</title>
   <style>
-    #img1 {
-      border: 3px solid #101010;
-      border-radius: 20px;
-      padding: 0px;
-      width: 70px;
+    h1 {
+      color: #fff;
+      position: relative;
+      font-size: 3vw;
+      letter-spacing: 10px;
+      font-family: sans-serif;
+      display: table;
+      margin: 60px auto;
+      cursor: pointer;
+      transition: .6s;
+    }
+
+    h1:before,
+    h1:after {
+      content: attr(data-text);
+      transition: .6s;
+    }
+
+    h1:before {
+      left: 0;
+      top: 0;
+      position: absolute;
+      z-index: -1;
+      text-shadow:
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px;
+      -webkit-mask: repeating-linear-gradient(45deg, transparent 0 3px, rgba(0, 0, 0, 0.5) 0 6px);
+      mask: repeating-linear-gradient(45deg, transparent 0 3px, rgba(0, 0, 0, 0.5) 0 6px);
+    }
+
+    h1:hover {
+      transform: translate(-10px, -10px);
+    }
+
+    h1:hover:before {
+      text-shadow:
+        1px 1px,
+        2px 2px,
+        3px 3px,
+        4px 4px,
+        5px 5px,
+        6px 6px,
+        7px 7px,
+        8px 8px,
+        9px 9px,
+        10px 10px;
+    }
+
+    html {
+      height: 100%;
     }
 
     body {
-      background-color: #cccccc;
-      opacity: 1;
-      text-align: center;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: linear-gradient(#141e30, #243b55);
     }
+
+    #mainTitle {
+      text-align: center;
+      color: #fff;
+      font-size: 3vw;
+      margin-top: 60px;
+    }
+
+    div.box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      padding: 40px;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, .5);
+      box-sizing: border-box;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+      border-radius: 10px;
+      color: #fff;
+    }
+
+    /* div.box h2 {
+      font-size: 2vi;
+      margin: 0 0 30px;
+      padding: 0;
+      color: #fff;
+      text-align: center;
+      text-decoration: underline rgba(0, 235, 243, 0.653);
+    } */
   </style>
 </head>
 
 <body>
-
-  <img id=img1 src="https://cdn3.vectorstock.com/i/thumb-large/47/62/stop-sign-no-entry-symbol-vector- 21944762.jpg">
-  <h1>You are not allowed to vote</h1>
-  <h5>because:</h5>
-  <p>{{User}}withID {{ID}}alreadygiventhevote</p>
-  (or) <br><br> the {{User}} with that ID does not exist
+  <h1 data-text="Online Voting Powered by Blockchain"></h1>
+  <!-- <h2 id="mainTitle">Online Voting Powered by Blockchain</h2> -->
+  <div class="box">
+    <h2 style="font-size: 2rem;">You are not allowed to vote</h2>
+    <h4>because:</h4>
+    <p>{{User}} with ID {{ID}} already given the vote</p>
+    (or) <br><br> the {{User}} with that ID does not exist
+  </div>
 </body>
 
 </html>

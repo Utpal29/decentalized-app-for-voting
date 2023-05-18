@@ -140,4 +140,4 @@ def full_chain():
 
 if __name__ == '__main__':
   # App starts
-  app.run(host = 'localhost', port = 5500, debug = True)
+  app.run(host = 'localhost', port = 5000, debug = True)
