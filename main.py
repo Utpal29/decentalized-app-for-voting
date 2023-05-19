@@ -138,6 +138,12 @@ def full_chain():
   )
   return response
 
+@app.route('/result', methods=['GET'])
+def see_result():
+    result = blockchain.see_result()
+    return jsonify(result)
+
+
 if __name__ == '__main__':
   # App starts
   app.run(host = 'localhost', port = 5000, debug = True)

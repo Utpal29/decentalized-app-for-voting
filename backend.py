@@ -3,8 +3,11 @@ from time import time
 from urllib.parse import urlparse 
 import requests
 import json
-from uuid import uuid4 
+from uuid import uuid4
+from flask import Flask, jsonify
 
+app = Flask(__name__)
+node_identifier = str(uuid4()).replace('-', '')
 class Blockchain:
 
   # Initialization of PARAMETERS
@@ -16,6 +19,21 @@ class Blockchain:
     self.nodes = set()
     # Creation of genesis block 
     self.new_block(previous_hash=1, proof=100)
+
+  def see_result(self):
+        vote_tallies = {}
+
+        for block in self.chain:
+            transactions = block['transactions']
+            for transaction in transactions:
+                party_b = transaction['Party_B']
+                votes = transaction['Votes']
+                if party_b in vote_tallies:
+                    vote_tallies[party_b] += votes
+                else:
+                    vote_tallies[party_b] = votes
+
+        return vote_tallies
 
 
   def register_node(self, address):
