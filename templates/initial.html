@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Online Voting</title>
   <style>
+    .hidden {
+      display: none;
+    }
+
     h1 {
       color: #fff;
       position: relative;
@@ -221,9 +225,26 @@
       <br><br>
       <button type="submit" name="submit" value="new_vote" class="button-39" role="button">New Vote</button>
       <button type="submit" name="submit" value="see_chain" class="button-39" role="button">See Chain</button>
-      <a href="/result" type="submit" name="submit" value="see_result" class="button-39" role="button">Result</a>
+      <br><br>
+      <button id="votingBtn" type="button" class="button-39" role="button" onclick="toggleVoting()">Stop Voting</button>
+      <a id="showResultBtn" href="/result" type="submit" name="submit" value="see_result" class="button-39 hidden" role="button">Result</a>
     </form>
   </div>
+
+  <script>
+    function toggleVoting() {
+      var votingBtn = document.getElementById("votingBtn");
+      var showResultBtn = document.getElementById("showResultBtn");
+
+      if (votingBtn.innerText === "Stop Voting") {
+        votingBtn.innerText = "Resume Voting";
+        showResultBtn.classList.remove("hidden");
+      } else {
+        votingBtn.innerText = "Stop Voting";
+        showResultBtn.classList.add("hidden");
+      }
+    }
+  </script>
 </body>
 
 </html>
