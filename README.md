@@ -11,3 +11,4 @@ This is a decentralized voting application built on the Ethereum blockchain usin
 5. Security through blockchain technology
 6. Decentralized and transparent
 7. Easy to use interface
+
