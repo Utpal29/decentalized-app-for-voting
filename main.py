@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, render_template, redirect, url_for
 from backend import Blockchain
 import json
 
+
 # Web App named app
 app = Flask(__name__)
 
